@@ -57,7 +57,7 @@ My own templates and implementation of important algorithms and data structures 
   - [Binomial Coefficients](Mathematics/nCk.cpp)
   - [Mathematical Expectation](https://codeforces.com/blog/entry/62690)
   - [Prime Factorisation](Mathematics/Prime_Factorisation.cpp)
-  - [Extended Euclidean](Mathematics/Extended_euclidean.cpp)
+  - [Extended Euclidean Theorem](Mathematics/Extended_euclidean.cpp)
 
 ## Computational Geometry
   - Sweep Line: [Closet Pairs](Geometry/Sweep%20Line/Closest%20Pairs.cpp), [Rectangle Union](Geometry/Sweep%20Line/Rectangle%20Union.cpp)
