@@ -71,5 +71,5 @@ My own templates and implementation of important algorithms and data structures 
   - [Maximum Histogram Area](Others/Maximum%20Histogram%20Area%20(Monotonic%20Stack).cpp)
   - [Meet In The Middle](Others/Meet%20In%20The%20Middle.cpp)
   - [Offline Dynamic Connectivity](Others/Offline%20Dynamic%20Connectivity.cpp)
-  - [Closest Points (Divide & Conquer)](/Others/Closest_3_Points(Divide&Conquer).cpp)
-  - [Traingular Partial Sum](/Others/Traingular Partial Sum.cpp)
+  - [Closest Points (Divide & Conquer)](Others/Closest_3_Points(Divide&Conquer).cpp)
+  - [Traingular Partial Sum](Others/Traingular Partial Sum.cpp)
