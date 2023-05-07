@@ -67,6 +67,7 @@ My own templates and implementation of important algorithms and data structures 
   - [N-queen](Others/N%20Queens.cpp)
   - [Binary Search](Others/Binary Search.cpp)
   - [Median Heap](Others/Median%20Heap.cpp)
+  - [Sex](Others/Median%20Heap.cpp)
   - [Inversion Count(Divide & Conquer)](Others/Divide & Conquer.cpp)
   - [Maximum Histogram Area](Others/Maximum%20Histogram%20Area%20(Monotonic%20Stack).cpp)
   - [Meet In The Middle](Others/Meet%20In%20The%20Middle.cpp)
