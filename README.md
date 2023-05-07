@@ -55,6 +55,7 @@ My own templates and implementation of important algorithms and data structures 
   - [Quick Exponentiation](Mathematics/Quick%20Exponention.cpp)
   - [Fibonacci](Mathematics/Fibonacci.cpp)
   - [Binomial Coefficients](Mathematics/nCk.cpp)
+  - [Mathematical Expectation](https://codeforces.com/blog/entry/62690)
 
 ## Computational Geometry
   - Sweep Line: [Closet Pairs](Geometry/Sweep%20Line/Closest%20Pairs.cpp), [Rectangle Union](Geometry/Sweep%20Line/Rectangle%20Union.cpp)
