@@ -53,7 +53,7 @@ My own templates and implementation of important algorithms and data structures 
   - [Sieve of Eratosthenes](Mathematics/Sieve%20Of%20Eratosthenes.cpp)
   - [Greatest Common Divisor (Euclidean Algorithm)](Mathematics/GCD.cpp)
   - [Quick Exponentiation](Mathematics/Quick%20Exponention.cpp)
-  - [Fibonacci](Mathematics/Fibonacci.cpp)
+  - [Euler-totient & GCD sum](Mathematics/Euler_totient.cpp)
   - [Binomial Coefficients](Mathematics/nCk.cpp)
   - [Mathematical Expectation](https://codeforces.com/blog/entry/62690)
   - [Prime Factorisation](Mathematics/Prime_Factorisation.cpp)
