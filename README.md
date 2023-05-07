@@ -67,6 +67,5 @@ My own templates and implementation of important algorithms and data structures 
   - [Median Heap](Others/Median%20Heap.cpp)
   - [Maximum Histogram Area](Others/Maximum%20Histogram%20Area%20(Monotonic%20Stack).cpp)
   - [Meet In The Middle](Others/Meet%20In%20The%20Middle.cpp)
-  - [2-SAT](Others/2SAT.cpp)
   - [Offline Dynamic Connectivity](Others/Offline%20Dynamic%20Connectivity.cpp)
   - [Closest Points (Divide & Conquer)](/Others/Closest_3_Points(Divide&Conquer).cpp)
