@@ -51,7 +51,7 @@ My own templates and implementation of important algorithms and data structures 
   
 ## Number Theory
   - [Sieve of Eratosthenes](Mathematics/Sieve%20Of%20Eratosthenes.cpp)
-  - [Linear Diophantine Equation(Euclidean Algorithm)](Mathematics/Linear_Diophantine.cpp)
+  - [Linear Diophantine Equation](Mathematics/Linear_Diophantine.cpp)
   - [Quick Exponentiation](Mathematics/Quick%20Exponention.cpp)
   - [Fibonacci](Mathematics/Fibonacci.cpp)
   - [Binomial Coefficients](Mathematics/nCk.cpp)
