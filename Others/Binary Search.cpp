@@ -1,3 +1,5 @@
+// Finding an element in a given array
+
 #include <bits/stdc++.h>
 
 using namespace std;
