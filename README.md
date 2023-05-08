@@ -70,4 +70,4 @@ My own templates and implementation of important algorithms and data structures 
   - [Meet In The Middle](Others/Meet%20In%20The%20Middle.cpp)
   - [Offline Dynamic Connectivity](Others/Offline%20Dynamic%20Connectivity.cpp)
   - [Closest Points (Divide & Conquer)](Others/Closest_3_Points(Divide&Conquer).cpp)
-  - [Binary Search](Others/Binary Search.cpp)
+  - [Binary Search](Others/Binary%20Search.cpp)
