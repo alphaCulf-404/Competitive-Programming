@@ -63,7 +63,7 @@ My own templates and implementation of important algorithms and data structures 
   - Sweep Line: [Closet Pairs](Geometry/Sweep%20Line/Closest%20Pairs.cpp), [Rectangle Union](Geometry/Sweep%20Line/Rectangle%20Union.cpp)
   
 ## Other Classic Problems
-  - [2D_Partial Sum](Others/2D Partial Sum.cpp)
+  - [2D_Partial Sum](Others/2D%20Partial%20Sum.cpp)
   - [N-queen](Others/N%20Queens.cpp)
   - [Median Heap](Others/Median%20Heap.cpp)
   - [Maximum Histogram Area](Others/Maximum%20Histogram%20Area%20(Monotonic%20Stack).cpp)
