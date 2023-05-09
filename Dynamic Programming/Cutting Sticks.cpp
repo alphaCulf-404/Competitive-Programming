@@ -1,68 +1,99 @@
-// Given a length x and n cutting points, find the minimum cost perform all n cuts
-// Cost of a cut is equal to the length of the current stick
-// A variation of Matrix Chain Multiplication DP Problem
-// Time complexity: O(n^3), can be reduced to O(n^2) with Knuth Optimization
-// Problem link: https://vjudge.net/problem/UVA-10003
+//On cutting cost = length of the current rod. Break into small parts with n-1 cuts and find the minimum cuts
+// LR Dp 
 
 #include <bits/stdc++.h>
 
 using namespace std;
 
-#define ar array
-#define ll long long
+template <typename A, typename B>
+ostream &operator<<(ostream &os, const pair<A, B> &p) { return os << '(' << p.first << ", " << p.second << ')'; }
+template <typename T_container, typename T = typename enable_if<!is_same<T_container, string>::value, typename T_container::value_type>::type>
+ostream &operator<<(ostream &os, const T_container &v)
+{
+    os << '{';
+    string sep;
+    for (const T &x : v)
+        os << sep << x, sep = ", ";
+    return os << '}';
+}
+void dbg_out() { cerr << endl; }
+template <typename Head, typename... Tail>
+void dbg_out(Head H, Tail... T)
+{
+    cerr << ' ' << H;
+    dbg_out(T...);
+}
+#ifdef LOCAL
+#define dbg(...) cerr << "(" << #__VA_ARGS__ << "):", dbg_out(__VA_ARGS__)
+#else
+#define dbg(...)
+#endif
 
-const int MAX_N = 50 + 5;
+#define ld long double
+#define sza(x) ((int)x.size())
+#define all(a) (a).begin(), (a).end()
+typedef vector<int> vi;
+#include <unordered_set>
+typedef vector<vector<int>> vvi;
+#define int long long int
+#define pb push_back
+#define no cout << "NO" \
+                << "\n"
+#define yes cout << "YES" \
+                 << "\n"
+#define sp(a) setprecision(a)
+
 const int MOD = 1e9 + 7;
-const int INF = 1e9;
-const ll LINF = 1e18;
 
-int opt[MAX_N][MAX_N];
+int n;
+int x[1001];
+int dp[1001][1001];
 
-void solve() {
-    while (true) {
-        int x; cin >> x;
-        if (!x) return;
+int rec(int l, int r)
+{
+    //pruning
 
-        int n; cin >> n;
-        int arr[n + 2];
-        // adding the beginning point and the ending point
-        arr[0] = 0; arr[n + 1] = x;
-        for (int i = 1; i <= n; i++) cin >> arr[i];
-        vector<vector<int>> dp(n + 2, vector<int>(n + 2, INF));
-        for (int i = 0; i < n + 1; i++) {
-            dp[i][i + 1] = 0;
-            opt[i][i + 1] = i;
-        }
-        // range dp
-        for (int i = n + 1; i >= 0; i--) {
-            for (int j = i; j <= n + 1; j++) {
-                for (int k = i + 1; k < j; k++) {
-                    if (dp[i][j] > dp[i][k] + dp[k][j] + arr[j] - arr[i]) {
-                        dp[i][j] = dp[i][k] + dp[k][j] + arr[j] - arr[i];
-                    }
-                }
-                // Knuth Optimization (only need to change 2 lines)
-                // Condition: dp[i][j] = min{i < k < j}(dp[i][k] + dp[k][j]) + C[i][j]
-                // for (int k = opt[i][j - 1]; k <= opt[i + 1][j]; k++) {
-                //     if (dp[i][j] > dp[i][k] + dp[k][j] + arr[j] - arr[i]) {
-                //         dp[i][j] = dp[i][k] + dp[k][j] + arr[j] - arr[i];
-                //         opt[i][j] = k;
-                //     }
-                // }
-            }
-        }
-        cout << "The minimum cutting is " << dp[0][n + 1] << ".\n"; 
+    //basecase
+    if(l+1 == r)
+    {
+        return 0;
     }
+    //cache check
+    if(dp[l][r] != -1) return dp[l][r];
+
+    //compute
+    int ans = 1e9;
+    for(int i = l+1; i <= r-1; i++)
+    {
+        ans = min(ans, x[r]- x[l] + rec(l,i)+ rec(i,r));
+    }
+    return dp[l][r] = ans;
 }
 
-int main() {
+void solve()
+{
+    cin >> n;
+    for(int i = 1; i <= n; i++)
+    {
+        cin >> x[i];
+    }
+    x[0] = 0;
+    memset(dp, -1, sizeof(dp));
+    cout << rec(0, n) << "\n";
+} 
+
+signed main()
+{
     ios_base::sync_with_stdio(0);
-    cin.tie(0); cout.tie(0);
+    cin.tie(0);
+    cout.tie(0);
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
 
-    int tc; tc = 1;
-    for (int t = 1; t <= tc; t++) {
+    int tc;
+    cin >> tc;
+    for (int t = 1; t <= tc; t++)
+    {
         // cout << "Case #" << t  << ": ";
         solve();
     }
