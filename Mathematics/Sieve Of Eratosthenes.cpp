@@ -1,90 +1,93 @@
-// Generate the all primes <= n
-// Time complexity: O(nlog(logn)) for standard sieve, O(n) for linear sieve
-// Problem link: https://cses.fi/problemset/task/2417/ (using linear sieve to generate the mobius function)
-
 #include <bits/stdc++.h>
 
 using namespace std;
 
-#define ar array
-#define ll long long
+template <typename A, typename B>
+ostream &operator<<(ostream &os, const pair<A, B> &p) { return os << '(' << p.first << ", " << p.second << ')'; }
+template <typename T_container, typename T = typename enable_if<!is_same<T_container, string>::value, typename T_container::value_type>::type>
+ostream &operator<<(ostream &os, const T_container &v)
+{
+    os << '{';
+    string sep;
+    for (const T &x : v)
+        os << sep << x, sep = ", ";
+    return os << '}';
+}
+void dbg_out() { cerr << endl; }
+template <typename Head, typename... Tail>
+void dbg_out(Head H, Tail... T)
+{
+    cerr << ' ' << H;
+    dbg_out(T...);
+}
+#ifdef LOCAL
+#define dbg(...) cerr << "(" << #__VA_ARGS__ << "):", dbg_out(__VA_ARGS__)
+#else
+#define dbg(...)
+#endif
 
-const int MAX_N = 1e6 + 5;
-const ll MOD = 1e9 + 7;
-const ll INF = 1e9;
+#define ld long double
+#define sza(x) ((int)x.size())
+#define all(a) (a).begin(), (a).end()
+typedef vector<int> vi;
+typedef vector<vector<int>> vvi;
+#define int long long int
+#define pb push_back
+#define no cout << "NO" \
+                << "\n"
+#define yes cout << "YES" \
+                 << "\n"
+#define sp(a) setprecision(a)
 
-// vector<int> primes, is_prime, spf;
+const int N = 3e5 + 5;
+const int MAX_N = 2e5 + 1;
+const int MOD = 1e9 + 7;
+const int INF = 1e9;
 
-// void sieve(int n) {
-//     primes.clear();
-//     is_prime.assign(n + 1, 1);
-//     spf.assign(n + 1, 0);
-//     is_prime[0] = is_prime[1] = false;
-//     for (ll i = 2; i <= n; i++) {
-//         if (is_prime[i]) {
-//             primes.push_back(i);
-//             spf[i] = i;
-//             for (ll j = i * i; j <= n; j += i) {
-//                 is_prime[j] = false;
-//                 spf[j] = i;
-//             }
-//         }
-//     }
-// }
+vector<int>prime(N, true);
 
-// Linear sieve including calculating the smallest prime factor (spf), Mobius function, and Euler's totient function
-vector<int> primes, is_prime, spf, mobius, phi;
+vector<int> Sieve(int n)
+{
+    vector<int>res;
 
-void sieve(int n) {
-    primes.clear();
-    is_prime.assign(n + 1, 1);
-    spf.assign(n + 1, 0);
-    mobius.assign(n + 1, 0);
-    phi.assign(n + 1, 0);
-    is_prime[0] = is_prime[1] = 0;
-    mobius[1] = phi[1] = 1;
-    for (ll i = 2; i <= n; i++) {
-        if (is_prime[i]) {
-            primes.push_back(i);
-            spf[i] = i;
-            mobius[i] = -1;
-            phi[i] = i - 1;
-        }
-        for (auto p : primes) {
-            if (i * p > n || p > spf[i]) break;
-            is_prime[i * p] = 0;
-            spf[i * p] = p;
-            mobius[i * p] = (spf[i] == p) ? 0 : -mobius[i];
-            phi[i * p] = (spf[i] == p) ? phi[i] * p : phi[i] * phi[p];
+    for (int p = 2; p * p <= n; p++)
+    {
+        if (prime[p] == true)
+        {
+            for (int i = p * p; i <= n; i += p)
+                prime[i] = false;
         }
     }
-}
 
-void solve() {
+    for(int i = 2; i <= n; i++)
+    {
+        if(prime[i]) res.pb(i);
+    }
+
+    return res;
+}
+void solve()
+{
     int n; cin >> n;
-    vector<int> cnt(MAX_N);
-    while (n--) {
-        int x; cin >> x;
-        cnt[x]++;
+    vector<int>ans = Sieve(n);
+
+    for(int i = 0; i < ans.size(); i++)
+    {
+        cout << ans[i] << " ";
     }
-    ll ans = 0;
-    for (int i = 1; i < MAX_N; i++) {
-        if (!mobius[i]) continue;
-        ll tmp = 0;
-        for (int j = i; j < MAX_N; j += i) tmp += cnt[j];
-        ans += tmp * (tmp - 1) / 2 * mobius[i];
-    }
-    cout << ans << "\n";
+    cout << "\n";
 }
 
-int main() {
+signed main()
+{
     ios_base::sync_with_stdio(0);
-    cin.tie(0); cout.tie(0);
-    sieve(MAX_N);
-    int tc = 1;
-    // cin >> tc;
-    for (int t = 1; t <= tc; t++) {
-        // cout << "Case #" << t << ": ";
+    cin.tie(0);
+    cout.tie(0);
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        // cout << "Case #" << t+1 << ": ";
         solve();
     }
 }
