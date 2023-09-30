@@ -49,19 +49,33 @@ const int MOD = 1e9 + 7;
 const int INF = 1e9;
 const ld EPS = 1e-9;
 
-vector<int> KMP(string &s)
+vector<int> KMP(string &str)
 {
-    int n = s.length(); vector<int>kmp(n+1, 0);
-    
-    int i = 0, j = -1; kmp[0] = -1;
-    
-    while(i < n)
+    int n = str.length();
+    vector<int> lps(n, 0);
+    int i = 0;
+    int j = 1;
+    lps[0] = 0;
+    cout << n << "\n";
+    while (i < n && j < n)
     {
-        while(j != -1 && s[i] != s[j]) j = kmp[j];
-        j++; i++;
-        kmp[i] = j;
+        if (str[j] != str[i])
+        {
+            if (i != 0)
+                i = lps[i - 1];
+            else
+            {
+                lps[j] = 0;
+                j++;
+            }
+        }
+        else
+        {
+            lps[j] = 1 + i;
+            i++;
+            j++;
+        }
     }
-    return kmp;
 }
 
 int cnt_occ(string s, string t) 
